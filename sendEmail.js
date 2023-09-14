@@ -1,24 +1,20 @@
 const nodemailer = require('nodemailer');
+const express = require('express');
+
+// Create a transporter object using your Zoho email credentials
+
+
 
 // Create a transporter object using your Zoho email credentials
 const transporter = nodemailer.createTransport({
   host: 'smtppro.zoho.in',
-    secure: true,
-    port: 465,
-    auth: {
-        user: 'admin@globalplugin.com',
-        pass: 'rGF9k6D3NAaH'
-    },
+  secure: true,
+  port: 465,
+  auth: {
+    user: 'admin@globalplugin.com',
+    pass: 'rGF9k6D3NAaH'
+  },
 });
-// const transporter = nodemailer.createTransport({
-//   host: 'smtp.zoho.com',
-//     secure: true,
-//     port: 465,
-//     auth: {
-//         user: 'jatina@evolvedigitas.com',
-//         pass: 'Dhswk3WJeevG'
-//     },
-// });
 
 // Email content
 const mailOptions = {
@@ -30,6 +26,7 @@ const mailOptions = {
 
 // Send the email
 // Create a post route to send mail
+const app = express(); // Define app
 app.post('/send-mail', (req, res) => {
   // Email content
   const mailOptions = {
